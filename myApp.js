@@ -9,10 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // POST handler at /name
-app.post('/name', (req, res) => {
-  const firstName = req.body.first;
-  const lastName = req.body.last;
-  res.json({ name: `${firstName} ${lastName}` });
+
+app.post("/name", function(req, res) {
+  // Handle the data in the request
+  var string = req.body.first + " " + req.body.last;
+  res.json({ name: string });
 });
 
 module.exports = app;
